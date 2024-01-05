@@ -1,9 +1,11 @@
 // tic tac toe js
 
 // looking at building a house from the inside out connect4 example
+// by Alex Younger
+
 // using initial logic from aritcle for console game
 // will refactor it for DOM and UI, add player winning logic
-// by Alex Younger
+
 
 function Gameboard() {
     const gameboard = [];
