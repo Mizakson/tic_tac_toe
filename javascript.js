@@ -10,6 +10,7 @@ function Gameboard() {
     const rows = 3;
     const columns = 3;
 
+    // 2d array that shows gameboard state
     for (let i = 0; i < rows; i++) {
         gameboard[i] = [];
         for (let j = 0; j < columns; j++) {
@@ -17,6 +18,7 @@ function Gameboard() {
         }
     }
 
+    // method used for ui render 
     const getBoard = () => gameboard;
 
     // put the marker in the cell
@@ -27,34 +29,42 @@ function Gameboard() {
         // invalid move
         if (!availableCells.length) return;
 
+        // else, cell is valid, being the last one in the filtered array
         const lowestRow = availableCells.length - 1;
         gameboard[lowestRow][column].addMarker(player);
     };
 
+    // prints board to console
+    // not needed after ui is finished
     const printBoard = () => {
         const gameboardWithCellValues = gameboard.map((row) => row.map((cell) => cell.getValue()));
         console.log(gameboardWithCellValues);
     }
 
+    // board interaction api
     return { getBoard, dropMarker, printBoard };
 
 };
 
-
+// each cell has 3 states
+// empty, X, or O
 function Cell() {
     let value = 0;
 
+    // change cell value
     const addMarker = (player) => {
         value = player;
     };
 
-    const getValue = value;
+    // get currecnt value of the cell
+    const getValue = () => value;
 
     return { addMarker, getValue };
 
 };
 
-
+// control game state and game flow
+// will add winner logic
 function GameController(
     playerOneName = "Player One",
     playerTwoName = "Player Two"
@@ -85,17 +95,23 @@ function GameController(
     };
 
     const playRound = (column) => {
+        // move marker for current player
         console.log(`Moving ${getActivePlayer().name}'s marker into column ${column}...`);
         board.dropMarker(column, getActivePlayer().marker);
 
+        // check for game winner here
+        // win message here
+
+        // switch turns
         switchPlayerTurn();
         printNewRound();
     };
 
     printNewRound();
 
+    // getActive player needed for UI version. not current console version
     return { playRound, getActivePlayer };
 
 }
 
-const game = GameController;
+const game = GameController();
