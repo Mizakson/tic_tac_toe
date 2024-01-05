@@ -84,7 +84,7 @@ function GameController(
         console.log(`${getActivePlayer().name}'s turn.`);
     };
 
-    const playRound = (column) {
+    const playRound = (column) => {
         console.log(`Moving ${getActivePlayer().name}'s marker into column ${column}...`);
         board.dropMarker(column, getActivePlayer().marker);
 
