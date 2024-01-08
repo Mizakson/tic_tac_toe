@@ -1,12 +1,12 @@
 // tic tac toe js
 
-// Gameboard Obj
-const Gameboard = {
-    gameboard: [],   
-}
+
+const Gameboard = (function(){
+    const gameboard = [];   
+})();
 
 
-function Player(name, marker) {
+const Player = function(name, marker) {
     return { name, marker }; 
 };
 
