@@ -4,3 +4,13 @@
 const Gameboard = {
     gameboard: [],   
 }
+
+
+const Player = {
+
+};
+
+
+const GameFlow = {
+
+};
