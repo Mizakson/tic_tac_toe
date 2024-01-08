@@ -11,6 +11,6 @@ const Player = function(name, marker) {
 };
 
 
-const GameFlow = {
+const GameFlow = (function(){
 
-};
+})();
