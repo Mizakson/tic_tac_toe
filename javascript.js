@@ -6,8 +6,8 @@ const Gameboard = {
 }
 
 
-const Player = {
-
+function Player(name, marker) {
+    return { name, marker }; 
 };
 
 
