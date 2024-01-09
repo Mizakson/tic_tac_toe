@@ -1,5 +1,11 @@
 // tic tac toe js
 
+// Initial logic for this project used 
+// from the article 'Building a House From The Inside Out'
+// by Alex Younger
+
+// Looked at his logic behind a connect four console game example
+// and am working on refactoring some of that logic into this project
 
 function Gameboard() {
     const rows = 3;
@@ -17,8 +23,20 @@ function Gameboard() {
         }
     };
 
-    // function addMarker(row, col, player) {
-    // }
+    // ui render
+    const getGameboard = () => gameboard; 
+
+    const addMarker = (row, player) => {
+        // iterate through board array to check if val is 0
+        const emptyCells = gameboard.filter((row) => row[col].getValue() === 0).map(row => row[col]);
+    };
+
+    // stop if cell doesn't make it through the filter
+    if (!emptyCells.length) return;
+
+    // the valid cell is the last one that makes it through the filtered arr
+    const lowestRow = emptyCells.length - 1;
+    gameboard[lowestRow][col].addMarker(player);
 
 }
 
