@@ -12,36 +12,29 @@ function Gameboard() {
     const cols = rows;
     const gameboard = [];
 
+    const innerRow = 0;
+
     // gameboard creation
     // common way of making 2d array
     for (let i = 0; i < rows; i++) {
         // row 0 is the top row
-        board[i] = [];
+        gameboard[i] = [[], [], []];
         for (let j = 0; j < cols; j++) {
             // col j is left-most column
-            board[j] = [];
+            gameboard[j] = [[], [], []];
         }
     };
 
     // ui render
     const getGameboard = () => gameboard; 
 
-    const addMarker = (col, row, player) => {
-        // iterate through board array to check if val is 0
-        const emptyCells = gameboard.filter((row) => row[col].getValue() === 0).map(row => row[col]);
-
-        // stop if cell doesn't make it through the filter
-        if (!emptyCells.length) return;
-
-        // the valid cell is the last one that makes it through the filtered arr
-        const lowestRow = emptyCells.length - 1;
-        gameboard[lowestRow][col].addMarker(player);
-
-    };
+    const addMarker = () => {
+        // have to add to specific row, col 
+    }
 
     const showGameBoard = () => {
         // map is the same as using a loop, just a method for arrays
-        const filledBoard = gameboard.map((row) => row.map((cell) => cell.getValue()));
+        const filledBoard = gameboard.map((row) => row.map((cell) => cell.getVal()));
         console.log(filledBoard);
     }
 
@@ -117,3 +110,5 @@ const GameFlow = function(name1, name2) {
     return { newRound, getActivePlayer };
 
 }
+
+const game = GameFlow('Max', 'Bob');
