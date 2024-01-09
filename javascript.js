@@ -29,14 +29,24 @@ function Gameboard() {
     const addMarker = (row, player) => {
         // iterate through board array to check if val is 0
         const emptyCells = gameboard.filter((row) => row[col].getValue() === 0).map(row => row[col]);
+
+        // stop if cell doesn't make it through the filter
+        if (!emptyCells.length) return;
+
+        // the valid cell is the last one that makes it through the filtered arr
+        const lowestRow = emptyCells.length - 1;
+        gameboard[lowestRow][col].addMarker(player);
+
     };
 
-    // stop if cell doesn't make it through the filter
-    if (!emptyCells.length) return;
+    const showGameBoard = () => {
+        // map is the same as using a loop, just a method for arrays
+        const filledBoard = gameboard.map((row) => row.map((cell) => cell.getValue()));
+        console.log(filledBoard);
+    }
 
-    // the valid cell is the last one that makes it through the filtered arr
-    const lowestRow = emptyCells.length - 1;
-    gameboard[lowestRow][col].addMarker(player);
+
+    return { getGameboard, addMarker, showGameBoard };
 
 }
 
