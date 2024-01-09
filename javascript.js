@@ -5,7 +5,7 @@
 // by Alex Younger
 
 // Looked at his logic behind a connect four console game example
-// and am working on refactoring some of that logic into this project
+// and am working on refactoring that logic into this project
 
 function Gameboard() {
     const rows = 3;
