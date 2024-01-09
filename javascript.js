@@ -81,5 +81,15 @@ const GameFlow = function(name1, name2) {
             name: name2,
             marker: 'O'
         }
-    ]
+    ];
+
+    // default turn is player 1
+    let activePlayer = players[0];
+
+    const changePlayerTurn = () => {
+        // ternary operator
+        // if players[0] is the active player, then switch to players[1]
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    };
+
 }
