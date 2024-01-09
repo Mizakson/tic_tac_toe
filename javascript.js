@@ -5,6 +5,17 @@ function Gameboard() {
     const rows = 3;
     const cols = rows;
     const gameboard = [];
+
+    // gameboard creation
+    // common way of making 2d array
+    for (let i = 0; i < rows; i++) {
+        // row 0 is the top row
+        board[i] = [];
+        for (let j = 0; j < cols; j++) {
+            // col j is left-most column
+            board[j] = [];
+        }
+    }
 }
 
 
