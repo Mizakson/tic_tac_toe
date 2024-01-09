@@ -26,7 +26,7 @@ function Gameboard() {
     // ui render
     const getGameboard = () => gameboard; 
 
-    const addMarker = (col, player) => {
+    const addMarker = (col, row, player) => {
         // iterate through board array to check if val is 0
         const emptyCells = gameboard.filter((row) => row[col].getValue() === 0).map(row => row[col]);
 
@@ -97,6 +97,23 @@ const GameFlow = function(name1, name2) {
     const newRound = () => {
         gameboard.showGameBoard();
         console.log(`${getActivePlayer().name}'s turn...`);
-    }
+    };
+
+    const playRound = () => {
+        console.log(`Adding ${getActivePlayer().name}'s ${getActivePlayer().marker} into
+        column ${col}, row ${row}`);
+
+        gameboard.addMarker(col, row, getActivePlayer().marker);
+
+        // add game winner logic here
+        // add game win message here
+
+        changePlayerTurn();
+        newRound();
+    };
+    
+    newRound();
+
+    return { newRound, getActivePlayer };
 
 }
