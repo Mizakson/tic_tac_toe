@@ -15,8 +15,30 @@ function Gameboard() {
             // col j is left-most column
             board[j] = [];
         }
-    }
+    };
+
+    // function addMarker(row, col, player) {
+    // }
+
 }
+
+// each box on the board
+function Cell() {
+    // 3 possible vals
+    // 0 - empty
+    // 1 - player1 marker
+    // 2 - player2 marker
+
+    let val = 0;
+
+    const addMarker = (player) => {
+        val = player;
+    }
+
+    const getVal = () => val;
+
+    return { addMarker, getVal };
+};
 
 
 const GameFlow = function(name1, name2) {
