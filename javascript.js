@@ -9,6 +9,8 @@ function Gameboard() {
         emptyRow
     ];
 
+    const getGameboard = () => emptyBoard;
+
     return { emptyBoard };
 };
 
