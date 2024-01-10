@@ -1,17 +1,22 @@
 // tic tac toe js
 
 function Gameboard() {
-    let emptyRow = [[0], [0], [0]];
+    let row = [[0], [0], [0]];
 
-    let emptyBoard = [
-        emptyRow,
-        emptyRow,
-        emptyRow
+    let board = [
+        row,
+        row,
+        row
     ];
 
-    const getGameboard = () => emptyBoard;
+    const getGameboard = () => board;
 
-    return { emptyBoard };
+    function addMarker(col, row, player) {
+        col = board[col];
+        row = board[row]
+    }
+
+    return { board };
 };
 
 
@@ -29,7 +34,7 @@ function gameController(player1, player2) {
         }
     ];
 
-    let board = Gameboard().emptyBoard;
+    let board = Gameboard().board;
 
     let activePlayer = players[0];
 
