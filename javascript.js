@@ -14,24 +14,11 @@ function Gameboard() {
 
 };
 
-function Cell() {
-    // default value === empty cell
-    let value = '0';
-
-    const addMarker = (player) => {
-        value = player;
-    };
-
-    const getValue = () => value;
-
-    return { addMarker, getValue }
-
-}
-
-
 
 function gameController(player1, player2) {
     
+    const board = Gameboard();
+
     let players = [
         {
             name: player1,
@@ -43,9 +30,12 @@ function gameController(player1, player2) {
         }
     ];
 
-    let board = Gameboard().board;
-
     let activePlayer = players[0];
+
+    // connect 4 console example switch turn method
+    const switchTurn = () => {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    }
 
     const getActivePlayer = () => activePlayer;
 
