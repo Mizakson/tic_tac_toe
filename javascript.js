@@ -11,8 +11,22 @@ function Gameboard() {
     const getGameboard = () => board;
 
     return { board, getGameboard };
-    
+
 };
+
+function Cell() {
+    // default value === empty cell
+    let value = '0';
+
+    const addMarker = (player) => {
+        value = player;
+    };
+
+    const getValue = () => value;
+
+    return { addMarker, getValue }
+
+}
 
 
 
