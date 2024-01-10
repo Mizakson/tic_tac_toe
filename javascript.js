@@ -14,9 +14,6 @@ function Gameboard() {
     return { emptyBoard };
 };
 
-function Cell() {
-    
-}
 
 
 function gameController(player1, player2) {
