@@ -1,22 +1,17 @@
 // tic tac toe js
 
 function Gameboard() {
-    let row = [[0], [0], [0]];
+    let board = [];
+    let row = ['0', '0', '0'];
 
-    let board = [
-        row,
-        row,
-        row
-    ];
+    for (let i = 0; i < 3; i++) {
+        board.push(row);
+    };
 
     const getGameboard = () => board;
 
-    function addMarker(col, row, player) {
-        col = board[col];
-        row = board[row]
-    }
-
-    return { board };
+    return { board, getGameboard };
+    
 };
 
 
@@ -43,3 +38,5 @@ function gameController(player1, player2) {
     return { players }; 
 
 }
+
+const test = Gameboard();
