@@ -33,23 +33,6 @@ function gameController(player1, player2) {
 
     const getActivePlayer = () => activePlayer;
 
-    function changePlayerTurn(player) {
-        if (player === activePlayer) {
-            player = players[1];
-            console.log(`${activePlayer}'s turn...`);
-        } else {
-            player = activePlayer;
-            console.log(`${players[1]}'s turn...`);
-        }
-    }
-
-    function addMarker(col, row, player) {
-        
-        player = getActivePlayer;
-        board[col][row] = [getActivePlayer().marker];
-        return board;
-    };
-
-    return { players, changePlayerTurn, addMarker }; 
+    return { players }; 
 
 }
