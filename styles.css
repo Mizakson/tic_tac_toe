@@ -1,3 +1,18 @@
+body, #title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    gap: 25px;
+}
+
+body p {
+    font-style: italic;
+}
+
 .cell {
     border: 2px solid black;
 }
