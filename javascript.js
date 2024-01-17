@@ -1,6 +1,6 @@
 // tic tac toe js
 
-const gameBoard = (function() {
+const Gameboard = (function() {
     let gameboard = ["","","","","","","","",""];
 
     const render = () => {
@@ -13,6 +13,33 @@ const gameBoard = (function() {
     }
 
     return { render };
+
+})();
+
+const createPlayer = (name, marker) => {
+    return { name, marker };
+}
+
+
+const GameController = (function() {
+    
+    let players = [];
+
+    let currentPlayerIndex;
+
+    let gameOver;
+
+    const startMatch = () => {
+        players = [
+            createPlayer(document.querySelector("#player1").value,"X"),
+            createPlayer(document.querySelector("#player2").value,"O")
+        ];
+        currentPlayerIndex = 0;
+        gameOver = false;
+        Gameboard.render();
+    }
+
+    return { startMatch };
 
 })();
 
