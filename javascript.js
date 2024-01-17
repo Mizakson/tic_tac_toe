@@ -10,6 +10,11 @@ const Gameboard = (function() {
             gameboardHTML += `<div class="cell" id="cell-${index}">${cell}</div>`;
         })
         document.querySelector("#gameboard").innerHTML = gameboardHTML;
+        
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => {
+            cell.addEventListener("click", GameController.handleClick);
+        })
     }
 
     return { render };
@@ -39,7 +44,12 @@ const GameController = (function() {
         Gameboard.render();
     }
 
-    return { startMatch };
+    const handleClick = (event) => {
+        let index = parseInt(event.target.id.split("-")[1]);
+        console.log(index);
+    }
+
+    return { startMatch, handleClick };
 
 })();
 
