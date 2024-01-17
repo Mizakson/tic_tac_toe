@@ -30,3 +30,13 @@ body p {
 .cell:hover {
     background-color: lightblue;
 }
+
+#start:hover {
+    background-color: lightgreen;
+    border-radius: 5px;
+}
+
+#restart:hover {
+    background-color: pink;
+    border-radius: 5px;
+}
