@@ -3,6 +3,7 @@ body, #title {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -39,4 +40,15 @@ body p {
 #restart:hover {
     background-color: pink;
     border-radius: 5px;
+}
+
+#gameboard div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+input, button {
+    font-family: inherit;
 }

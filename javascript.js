@@ -55,6 +55,10 @@ const GameController = (function() {
         // only show index number per cell on click
         let index = parseInt(event.target.id.split("-")[1]);
         Gameboard.update(index, players[currentPlayerIndex].marker);
+
+        // turn mechanism
+        // use ternary operator
+        currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
 
     return { startMatch, handleClick };
