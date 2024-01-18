@@ -91,7 +91,11 @@ const GameController = (function() {
 
     const handleClick = (event) => {
 
-    
+        // if game is over, stop the program
+        if (gameOver) {
+            return;
+        }
+
         // only show index number per cell on click
         let index = parseInt(event.target.id.split("-")[1]);
         
@@ -110,7 +114,7 @@ const GameController = (function() {
             winnerText.innerHTML += `${players[currentPlayerIndex].name} wins...`;
         } else if (checkForTie(Gameboard.getGameboard())) {
             gameOver = true;
-            winnerText += "It's a tie...";
+            winnerText.innerHTML += "It's a tie...";
         }
 
 
