@@ -62,7 +62,13 @@ function checkForWinner(gameboard) {
     }
 
     return false;
+};
+
+function checkForTie(gameboard) {
+    // use every function
+    return gameboard.every(cell => cell !== "");
 }
+
 
 const GameController = (function() {
     
@@ -84,6 +90,8 @@ const GameController = (function() {
     }
 
     const handleClick = (event) => {
+
+    
         // only show index number per cell on click
         let index = parseInt(event.target.id.split("-")[1]);
         
@@ -95,11 +103,17 @@ const GameController = (function() {
 
         Gameboard.update(index, players[currentPlayerIndex].marker);
 
+        
+
         if (checkForWinner(Gameboard.getGameboard(), players[currentPlayerIndex].marker)) {
             matchOver = true;
-            const winnerText = document.querySelector("#winner-message");
             winnerText.innerHTML += `${players[currentPlayerIndex].name} wins...`;
+        } else if (checkForTie(Gameboard.getGameboard())) {
+            gameOver = true;
+            winnerText += "It's a tie...";
         }
+
+
         currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
 
@@ -107,6 +121,7 @@ const GameController = (function() {
 
 })();
 
+const winnerText = document.querySelector("#winner-message");
 const startBtn = document.querySelector("#start");
 const restartBtn = document.querySelector("#restart");
 
@@ -116,4 +131,5 @@ startBtn.addEventListener("click", () => {
 
 restartBtn.addEventListener("click", () => {
     Gameboard.restart();
+    winnerText.innerText = "";
 });
