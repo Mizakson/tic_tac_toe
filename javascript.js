@@ -10,10 +10,20 @@ const Gameboard = (function() {
             gameboardHTML += `<div class="cell" id="cell-${index}">${cell}</div>`;
         })
         document.querySelector("#gameboard").innerHTML = gameboardHTML;
+
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => {
+            cell.addEventListener("click", GameController.handleClick);
+        })
         
     }
 
-    return { render };
+    const update = (index, value) => {
+        gameboard[index] = value;
+        render();
+    };
+
+    return { render, update };
 
 })();
 
@@ -39,16 +49,12 @@ const GameController = (function() {
         gameOver = false;
         Gameboard.render();
 
-        const cells = document.querySelectorAll(".cell");
-        cells.forEach((cell) => {
-            cell.addEventListener("click", handleClick);
-        })
     }
 
     const handleClick = (event) => {
         // only show index number per cell on click
         let index = parseInt(event.target.id.split("-")[1]);
-        console.log(index);
+        Gameboard.update(index, players[currentPlayerIndex].marker);
     }
 
     return { startMatch, handleClick };
