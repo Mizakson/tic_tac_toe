@@ -7,8 +7,16 @@ and organizing code.
 In terms of JavaScript, I learned about... 
 
 -- basic render & update value functions
+
+
 -- what an accessor method does
+
+
 -- using factories to create players for the game
+
+
 -- how to iterate through arrays to check for the game result
+
+
 -- how to use a basic ternary operator
 
