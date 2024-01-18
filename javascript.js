@@ -26,7 +26,14 @@ const Gameboard = (function() {
     // accessor method
     const getGameboard = () => gameboard;
 
-    return { render, update };
+    const restart = () => {
+        for (let i = 0; i < 9; i++) {
+            Gameboard.update(i, "");
+        }
+        render();
+    }
+
+    return { render, update, getGameboard, restart };
 
 })();
 
@@ -80,5 +87,5 @@ startBtn.addEventListener("click", () => {
 });
 
 restartBtn.addEventListener("click", () => {
-    alert("TEST");
+    Gameboard.restart();
 });
