@@ -23,6 +23,9 @@ const Gameboard = (function() {
         render();
     };
 
+    // accessor method
+    const getGameboard = () => gameboard;
+
     return { render, update };
 
 })();
@@ -54,10 +57,14 @@ const GameController = (function() {
     const handleClick = (event) => {
         // only show index number per cell on click
         let index = parseInt(event.target.id.split("-")[1]);
-        Gameboard.update(index, players[currentPlayerIndex].marker);
-
+        
         // turn mechanism
         // use ternary operator
+
+        if (Gameboard.getGameboard()[index] !== "")
+        return;
+
+        Gameboard.update(index, players[currentPlayerIndex].marker);
         currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
 
