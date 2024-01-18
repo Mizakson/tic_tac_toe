@@ -97,7 +97,8 @@ const GameController = (function() {
 
         if (checkForWinner(Gameboard.getGameboard(), players[currentPlayerIndex].marker)) {
             matchOver = true;
-            alert(`${players[currentPlayerIndex].name} wins...`)
+            const winnerText = document.querySelector("#winner-message");
+            winnerText.innerHTML += `${players[currentPlayerIndex].name} wins...`;
         }
         currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
     }
