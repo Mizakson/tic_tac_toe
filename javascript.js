@@ -30,6 +30,7 @@ const Gameboard = (function() {
         for (let i = 0; i < 9; i++) {
             Gameboard.update(i, "");
         }
+        gameOver = false;
         render();
     }
 
@@ -120,6 +121,7 @@ const GameController = (function() {
         if (checkForWinner(Gameboard.getGameboard(), players[currentPlayerIndex].marker)) {
             matchOver = true;
             winnerText.innerHTML += `${players[currentPlayerIndex].name} wins...`;
+            
         } else if (checkForTie(Gameboard.getGameboard())) {
             gameOver = true;
             winnerText.innerHTML += "It's a tie...";
