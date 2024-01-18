@@ -69,6 +69,14 @@ function checkForTie(gameboard) {
     return gameboard.every(cell => cell !== "");
 }
 
+// displayController to render game result message
+// optional
+// const displayController = (function() {
+//     const renderMessage = (message) => {
+//         winnerText.innerHTML = message;
+//     }
+// })();
+
 
 const GameController = (function() {
     
